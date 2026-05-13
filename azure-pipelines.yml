@@ -2,8 +2,9 @@ trigger:
 - main
 
 pool:
-  vmImage: ´ubuntu-latest´
+  vmImage: ubuntu-latest
 
+steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'dotnetmysqlrm560416'

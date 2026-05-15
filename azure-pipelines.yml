@@ -1,15 +1,20 @@
 trigger:
-- main
-
-pool:
- vmImage: 'ubuntu-latest'
-steps:
-- task: Docker@2
-  inputs:
-    containerRegistry: 'dotnetsqlrm560416'
-    repository: 'dotnetsq'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      $(Build.BuildId)
-      latest
+  branches:
+    include:
+    - main
+stages:
+- stage: __default
+  jobs:
+  - job: Job
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'dotnetmysqlrm560416'
+        repository: 'dotnetsql'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: |-
+          $(Build.BuildId)
+          latest

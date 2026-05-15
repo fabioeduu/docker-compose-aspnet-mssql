@@ -12,5 +12,5 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
-      $(Build.Buildid)
+      $(Build.BuildId)
       latest
